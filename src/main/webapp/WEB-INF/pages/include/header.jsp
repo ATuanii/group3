@@ -17,7 +17,7 @@
                 <div class="col-lg-5 col-md-7">
                     <div class="header__top__left">
                         <p> <sec:authorize access="isAuthenticated()">
-                                Authenticated as 
+                                Authenticated as
                                 <sec:authentication property="principal.username"/>
                             </sec:authorize>
                         </p>

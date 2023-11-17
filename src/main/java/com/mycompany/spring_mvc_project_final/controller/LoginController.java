@@ -56,6 +56,6 @@ public class LoginController {
 
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
     public String welcomePage(Model model) {
-        return "home";
+        return "index";
     }
 }
