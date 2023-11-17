@@ -7,44 +7,145 @@
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
       rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Vithkuqi&display=swap"
+      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Vithkuqi&family=Noto+Serif+Balinese&display=swap"
+      rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery first, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
-<!-- Header Section Begin -->
-<header style="position:fixed;width:100%;z-index: 100000;" class="header">
-    <div class="header__top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-7">
-                    <div class="header__top__left">
-                        <p> <sec:authorize access="isAuthenticated()">
-                                Authenticated as
-                                <sec:authentication property="principal.username"/>
-                            </sec:authorize>
-                        </p>
+			<div class="container">
+				<a class="navbar-brand" href="/">Furni<span>.</span></a>
 
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+						<li class="nav-item active">
+							<a class="nav-link" href="/">Home</a>
+						</li>
+						<li><a class="nav-link" href="shop">Shop</a></li>
+						<li><a class="nav-link" href="about">About us</a></li>
+						<li><a class="nav-link" href="services">Services</a></li>
+						<li><a class="nav-link" href="blog.html">Blog</a></li>
+						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+					</ul>
+
+					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+				    <div class="col-lg-7 col-md-5">
+                                        <div style="height: 75px;"class="header__top__right">
+                                        <p> <sec:authorize access="isAuthenticated()">
+                                                                       Authenticated as
+                                            <sec:authentication property="principal.username"/>
+                                            </sec:authorize>
+                                        </p>
+                                            <div class="header__top__links">
+                                                <sec:authorize access="isAuthenticated()">
+                                                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                                        <a href="<c:url value="/admin/home" />">Admin Home</a>
+                                                    </sec:authorize>
+                                                    <a href="<c:url value="/logout" />">Logout</a>
+                                                </sec:authorize>
+
+                                                <!-- If No login then will show Login Page -->
+                                                <sec:authorize access="!isAuthenticated()">
+                                                    <a href="<c:url value="/login" />">Login</a>
+                                                    <a href="<c:url value="/login" />">Sign Up</a>
+                                                </sec:authorize>
+
+                                            </div>
+                                            <li><a class="nav-link" href="/cart"><img src="resources/images/cart.svg"></a></li>
+                                        </div>
+
+						<li><a class="nav-link" href="/cart"><img src="resources/images/cart.svg"></a></li>
                     </div>
-                </div>
-                <div class="col-lg-7 col-md-5">
-                    <div style=""class="header__top__right">
-                        <div class="header__top__links">
-                            <sec:authorize access="isAuthenticated()">
-                                <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                    <a href="<c:url value="/admin/home" />">Admin Home</a>
-                                </sec:authorize>
-                                <a href="<c:url value="/logout" />">Logout</a>
-                            </sec:authorize>
+					</ul>
+				</div>
+			</div>
 
-                            <!-- If No login then will show Login Page -->
-                            <sec:authorize access="!isAuthenticated()">
-                                <a href="<c:url value="/login" />">Login</a>
-                            </sec:authorize>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
+		</nav>
 </header>
 <!-- Header Section End -->
+<style>
+.dropdown-content {
+  right: 0;
+}
+.MenuStyle {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: silver;
+}
+
+/* selected link */
+a:active {
+    color: silver;
+}
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>

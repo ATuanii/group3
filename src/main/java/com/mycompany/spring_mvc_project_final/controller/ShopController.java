@@ -11,4 +11,12 @@ public class ShopController {
     public String shop(Model model) {
         return "shop";
     }
+    @RequestMapping(value = {"/cart"}, method = RequestMethod.GET)
+    public String cart(Model model) {
+        return "cart";
+    }
+    @RequestMapping(value = {"/services"}, method = RequestMethod.GET)
+    public String services(Model model) {
+        return "services";
+    }
 }
