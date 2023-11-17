@@ -39,37 +39,22 @@
 						<li><a class="nav-link" href="services">Services</a></li>
 						<li><a class="nav-link" href="blog.html">Blog</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+						<sec:authorize access="isAuthenticated()">
+                             <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                <li><a class="nav-link" href="/admin/home">Admin Home</a></li>
+                             </sec:authorize>
+                             <li><a class="nav-link" href="/logout">Log out</a></li>
+                        </sec:authorize>
+						<!-- If No login then will show Login Page -->
+						<sec:authorize access="!isAuthenticated()">
+						<li><a class="nav-link" href="login">Login</a></li>
+                        <li><a class="nav-link" href="signup">Sign up</a></li>
+                        </sec:authorize>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-				    <div class="col-lg-7 col-md-5">
-                                        <div style="height: 75px;"class="header__top__right">
-                                        <p> <sec:authorize access="isAuthenticated()">
-                                                                       Authenticated as
-                                            <sec:authentication property="principal.username"/>
-                                            </sec:authorize>
-                                        </p>
-                                            <div class="header__top__links">
-                                                <sec:authorize access="isAuthenticated()">
-                                                    <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                                        <a href="<c:url value="/admin/home" />">Admin Home</a>
-                                                    </sec:authorize>
-                                                    <a href="<c:url value="/logout" />">Logout</a>
-                                                </sec:authorize>
-
-                                                <!-- If No login then will show Login Page -->
-                                                <sec:authorize access="!isAuthenticated()">
-                                                    <a href="<c:url value="/login" />">Login</a>
-                                                    <a href="<c:url value="/login" />">Sign Up</a>
-                                                </sec:authorize>
-
-                                            </div>
-                                            <li><a class="nav-link" href="/cart"><img src="resources/images/cart.svg"></a></li>
-                                        </div>
-
-						<li><a class="nav-link" href="/cart"><img src="resources/images/cart.svg"></a></li>
-                    </div>
-					</ul>
+				   <li><a class="nav-link" href="/cart"><img src="resources/images/cart.svg"></a></li>
+                   </ul>
 				</div>
 			</div>
 
