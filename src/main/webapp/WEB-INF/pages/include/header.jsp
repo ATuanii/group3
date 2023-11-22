@@ -23,7 +23,10 @@
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="/">Furni<span>.</span></a>
+				<a class="navbar-brand" href="/" style="display : flex; align-items: center;"><img src="https://i.imgur.com/ivspTC4.png" alt="logo" height="75px" width="75px" style="display: flex;">
+
+                                                                     <p style="font-style:'Noto Sans Vithkuqi', sans-serif; display: flex; align-self: end; font-size: 0.6em; margin-left: 0.5em;">ASTROWORLD</p>
+                                                                     </a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
