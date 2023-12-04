@@ -10,21 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "account")
@@ -33,10 +19,16 @@ public class AccountEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
+    @Column(name ="name", unique = true, length = 100)
+    private String name;
     @Column(unique = true, length = 100)
     private String email;
     private String password;
+    @Column(name ="phone", length = 10)
+    private int phone;
+
+    @Column(name ="address", length = 10)
+    private String address;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -50,7 +42,8 @@ public class AccountEntity implements Serializable {
                     name = "role_id",
                     referencedColumnName = "id"))
     private Set<RoleEntity> userRoles;
-
+    @OneToOne(mappedBy = "user")
+    private ShoppingCartEntity shoppingCartEntity;
     public AccountEntity() {
     }
 
@@ -60,6 +53,14 @@ public class AccountEntity implements Serializable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -78,12 +79,20 @@ public class AccountEntity implements Serializable {
         this.password = password;
     }
 
-    public Set<RoleEntity> getUserRoles() {
-        return userRoles;
+    public int getPhone() {
+        return phone;
     }
 
-    public void setUserRoles(Set<RoleEntity> userRoles) {
-        this.userRoles = userRoles;
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public UserStatus getStatus() {
@@ -94,4 +103,19 @@ public class AccountEntity implements Serializable {
         this.status = status;
     }
 
+    public Set<RoleEntity> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(Set<RoleEntity> userRoles) {
+        this.userRoles = userRoles;
+    }
+
+    public ShoppingCartEntity getShoppingCartEntity() {
+        return shoppingCartEntity;
+    }
+
+    public void setShoppingCartEntity(ShoppingCartEntity shoppingCartEntity) {
+        this.shoppingCartEntity = shoppingCartEntity;
+    }
 }

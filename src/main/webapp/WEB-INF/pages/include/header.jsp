@@ -23,10 +23,10 @@
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="/" style="display : flex; align-items: center;"><img src="https://i.imgur.com/ivspTC4.png" alt="logo" height="75px" width="75px" style="display: flex;">
-
-                                                                     <p style="font-style:'Noto Sans Vithkuqi', sans-serif; display: flex; align-self: end; font-size: 0.6em; margin-left: 0.5em;">ASTROWORLD</p>
-                                                                     </a>
+				<a class="navbar-brand" href="/" style="display : flex; align-items: center;">
+				<img src="https://i.imgur.com/ivspTC4.png" alt="logo" height="75px" width="75px" style="display: flex;">
+				<p style="font-style:'Noto Sans Vithkuqi', sans-serif; display: flex; align-self: end; font-size: 0.6em; margin-left: 0.5em;">ASTROWORLD</p>
+                 </a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -40,18 +40,18 @@
 						<li><a class="nav-link" href="shop">Shop</a></li>
 						<li><a class="nav-link" href="about">About us</a></li>
 						<li><a class="nav-link" href="services">Services</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+						<li><a class="nav-link" href="blog">Blog</a></li>
+						<li><a class="nav-link" href="contact">Contact us</a></li>
 						<sec:authorize access="isAuthenticated()">
                              <sec:authorize access="hasRole('ROLE_ADMIN')">
                                 <li><a class="nav-link" href="/admin/home">Admin Home</a></li>
                              </sec:authorize>
                              <li><a class="nav-link" href="/logout">Log out</a></li>
                         </sec:authorize>
-						<!-- If No login then will show Login Page -->
+						<!-- Nếu không đăng nhập thì sẽ hiển thị Trang đăng nhập -->
 						<sec:authorize access="!isAuthenticated()">
 						<li><a class="nav-link" href="login">Login</a></li>
-                        <li><a class="nav-link" href="signup">Sign up</a></li>
+                        <li><a class="nav-link" href="register">Sign up</a></li>
                         </sec:authorize>
 					</ul>
 
